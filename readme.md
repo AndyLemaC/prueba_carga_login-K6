@@ -1,4 +1,4 @@
-# ⚡ Prueba de Carga con K6 - Servicio de Login
+# Prueba de Carga con K6 - Servicio de Login
 
 Este proyecto realiza una prueba de carga sobre el endpoint de login utilizando [K6](https://k6.io/), simulando múltiples usuarios concurrentes, validando el rendimiento bajo estrés, y evaluando tiempos de respuesta frente a umbrales definidos.
 
