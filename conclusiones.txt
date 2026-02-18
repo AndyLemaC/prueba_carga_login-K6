@@ -1,0 +1,34 @@
+Hallazgos y Conclusiones
+
+Hallazgos:
+
+1. El sistema bajo prueba maneja correctamente la concurrencia configurada (20 VUs), sin degradación del tiempo de respuesta.
+
+2. El tiempo promedio de respuesta se mantuvo en 366.34 ms, lo cual es eficiente para un servicio de login.
+
+2. No se identificaron cuellos de botella ni fallas bajo las condiciones de prueba definidas.
+
+2. Se recomienda ejecutar pruebas con volúmenes más altos o variaciones de carga para validar escalabilidad y resistencia.
+
+Conclusiones:
+
+1. Los resultados de la Prueba de Carga evidencian el cumplimiento satisfactorio de los Requisitos No Funcionales (RNF) de tiempo de respuesta y tasa de errores. 
+   El p95 del tiempo de respuesta fue de 403.14 ms (muy por debajo del umbral de 1.5 s) y la tasa de error fue del 0.00%, indicando que el servicio es estable y 
+   confiable bajo carga.
+
+2. Durante la prueba realizada al servicio de login con 20 usuarios virtuales como máximo, se alcanzó un promedio de 11.53 TPS, lo cual representa un 57.65% del 
+   umbral requerido de 20 TPS. Si extrapolamos este resultado considerando que la prueba se ejecutó en una máquina local y con recursos limitados, es probable que 
+   el servicio pueda escalar adecuadamente en un entorno de producción. Sin embargo, es necesario un ajuste en la configuración para alcanzar el objetivo deseado.
+
+3. El microservicio respondió de manera consistente y sin errores durante las 2431 peticiones realizadas, lo que refleja una alta disponibilidad y confiabilidad 
+   del endpoint bajo prueba.
+
+4. Se evidenció que la relación entre usuarios virtuales y transacciones fue lineal, lo que indica un buen comportamiento del servicio ante aumentos de carga gradual.
+
+Recomendaciones:
+
+1. Aumentar la carga (mayor cantidad de VUs o ajustar iteraciones) para alcanzar los 20 TPS requeridos y volver a ejecutar la prueba.
+
+2. Validar el rendimiento en condiciones de alta concurrencia como parte de un plan de pruebas de performance más amplio
+
+3. Confirmar que el archivo CSV fue correctamente parametrizado en el script, lo cual permite simular usuarios reales y distintos datos de autenticación.
